@@ -34,6 +34,37 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+
 #include <iostream>
+#include <cmath>
 using namespace std;
 
+bool isPrime(int n) {
+    // Numbers less than 2 are not prime
+    if (n < 2) {
+        return false;
+    }
+
+    // Only need to check divisors up to the square root of n
+    for (int divisor = 2; divisor <= sqrt(n); divisor++) {
+        if (n % divisor == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    if (isPrime(number)) {
+        cout << number << " is a prime number." << endl;
+    } else {
+        cout << number << " is NOT a prime number." << endl;
+    }
+
+    return 0;
+}
